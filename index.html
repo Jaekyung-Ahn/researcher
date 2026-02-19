@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>안재경 | Researcher </title>
+    <title>안재경 | 범죄학 연구자</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -31,7 +31,6 @@
             overflow-x: hidden;
         }
 
-        /* 네비게이션 */
         nav {
             position: fixed;
             top: 0;
@@ -60,31 +59,18 @@
             font-weight: 700;
             color: var(--primary-blue);
         }
-        
+
         .nav-right {
             display: flex;
             align-items: center;
             gap: 2rem;
         }
-        
-        .lang-switch {
-            padding: 0.5rem 1rem;
-            background: var(--bg-light);
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 500;
-            color: var(--text-dark);
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .lang-switch:hover {
-            background: var(--primary-blue);
-            color: var(--white);
-        }
 
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
         .nav-links a {
             text-decoration: none;
@@ -98,6 +84,25 @@
             color: var(--primary-blue);
         }
 
+        .lang-switch {
+            padding: 0.5rem 1rem;
+            background: var(--bg-light);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+
+        .lang-switch:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
         .mobile-menu-btn {
             display: none;
             font-size: 1.5rem;
@@ -107,7 +112,6 @@
             color: var(--text-dark);
         }
 
-        /* 히어로 섹션 */
         .hero {
             margin-top: 70px;
             min-height: 85vh;
@@ -165,7 +169,6 @@
             margin-top: 1rem;
         }
 
-        /* 섹션 공통 스타일 */
         section {
             padding: 5rem 2rem;
             max-width: 1200px;
@@ -193,7 +196,6 @@
             border-radius: 2px;
         }
 
-        /* 학력 섹션 */
         .education-list {
             display: grid;
             gap: 1.5rem;
@@ -232,7 +234,6 @@
             font-size: 0.95rem;
         }
 
-        /* 연구 분야 */
         .research-areas {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -270,7 +271,6 @@
             font-size: 0.95rem;
         }
 
-        /* 논문 섹션 */
         .publications-filter {
             display: flex;
             justify-content: center;
@@ -377,7 +377,6 @@
             font-weight: 500;
         }
 
-        /* 강의 섹션 */
         .teaching-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -413,7 +412,6 @@
             font-size: 0.9rem;
         }
 
-        /* 연락처 섹션 */
         .contact-section {
             text-align: center;
             max-width: 600px;
@@ -447,7 +445,6 @@
             box-shadow: 0 6px 16px rgba(66, 133, 244, 0.4);
         }
 
-        /* Footer */
         footer {
             background: var(--text-dark);
             color: var(--white);
@@ -461,24 +458,9 @@
             opacity: 0.9;
         }
 
-        /* 반응형 */
         @media (max-width: 768px) {
             .nav-links {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background: var(--white);
-                flex-direction: column;
-                padding: 2rem;
-                gap: 1.5rem;
-                transition: left 0.3s;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            }
-
-            .nav-links.active {
-                left: 0;
+                display: none;
             }
 
             .mobile-menu-btn {
@@ -505,9 +487,13 @@
                 font-size: 0.9rem;
                 padding: 0.8rem 1.5rem;
             }
+
+            .lang-switch {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.8rem;
+            }
         }
 
-        /* 스크롤 애니메이션 */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -521,39 +507,38 @@
     </style>
 </head>
 <body>
-    <!-- 네비게이션 -->
     <nav id="navbar">
         <div class="nav-container">
             <div class="logo">Jaekyung Ahn</div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#teaching">Teaching</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <div class="nav-right">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#teaching">Teaching</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="index_en.html" class="lang-switch">🇺🇸 English</a>
+            </div>
         </div>
     </nav>
 
-    <!-- 히어로 섹션 -->
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-text">
                 <h1><span class="name-kr">안재경</span></h1>
                 <p class="name-en">Jaekyung Ahn</p>
-                <p class="title"> Researcher | Criminologist</p>
-                <p class="affiliation">한국형사법무정책연구원</p>
+                <p class="title">범죄학 연구자 | Criminologist</p>
+                <p class="affiliation">한국형사법무정책연구원 부연구위원</p>
                 <div class="contact-info">
                     📧 jaekyung.ann@gmail.com
-                    📧 jkahn@kicj.re.kr
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 학력 섹션 -->
     <section id="education" style="background: var(--bg-light);">
         <h2>Education</h2>
         <div class="education-list fade-in">
@@ -580,7 +565,6 @@
         </div>
     </section>
 
-    <!-- 연구 분야 섹션 -->
     <section id="research">
         <h2>Research Areas</h2>
         <div class="research-areas fade-in">
@@ -607,7 +591,6 @@
         </div>
     </section>
 
-    <!-- 논문 섹션 -->
     <section id="publications" style="background: var(--bg-light);">
         <h2>Publications</h2>
         
@@ -617,173 +600,64 @@
             <button class="filter-btn" data-year="2025">2025</button>
             <button class="filter-btn" data-year="2024">2024</button>
             <button class="filter-btn" data-year="2023">2023</button>
-            <button class="filter-btn" data-year="2022">2022</button>
         </div>
 
         <div class="publications-list fade-in">
-            <!-- 2026년 -->
             <div class="year-group" data-year="2026">
                 <h3 class="year-header">2026</h3>
                 <div class="publication-item ssci">
                     <span class="pub-badge">SSCI</span>
-                    <h3>When Numbers Meet Justice: Examining the Consistency Between Quantitative Risk Assessment Tools (PCL-R, KSORAS) Scores and Court Disposition</h3>
-                    <p class="publication-meta">Ahn, J., & Sim, S. | <span class="publication-journal">International Journal of Law, Crime and Justice (In press)</span></p>
+                    <h3>When Numbers Meet Justice: Examining the Consistency Between Quantitative Risk Assessment Tools</h3>
+                    <p class="publication-meta">Ahn, J., & Sim, S. | <span class="publication-journal">International Journal of Law, Crime and Justice</span></p>
                 </div>
             </div>
 
-            <!-- 2025년 -->
             <div class="year-group" data-year="2025">
                 <h3 class="year-header">2025</h3>
-                
                 <div class="publication-item">
                     <h3>차량 급발진 사고와 페달 오인: 수면자 효과에 기반한 원인 분석 및 대응방안</h3>
                     <p class="publication-meta">안재경, 심승범 | <span class="publication-journal">치안정책연구, 39(4), 5-46</span></p>
                 </div>
-
                 <div class="publication-item ssci">
                     <span class="pub-badge">SSCI</span>
-                    <h3>Distinct patterns in the accuracy of child testimonies: Evidence from a cluster‐based comparison with case records</h3>
+                    <h3>Distinct patterns in the accuracy of child testimonies</h3>
                     <p class="publication-meta">Ahn, J., & Choi, S. | <span class="publication-journal">Legal and Criminological Psychology</span></p>
                 </div>
-
-                <div class="publication-item">
-                    <h3>범죄피해자 반응 유형화에 대한 탐색적 연구: 심리·사회적 특성 기반 군집분석</h3>
-                    <p class="publication-meta">안재경, 박명호 | <span class="publication-journal">경찰학연구, 25(3), 245-268</span></p>
-                </div>
-
-                <div class="publication-item">
-                    <h3>범죄피해 아동의 법률 문해력: 법률용어와 전문가 역할 이해도를 중심으로</h3>
-                    <p class="publication-meta">안재경, 최선희 | <span class="publication-journal">피해자학연구, 33(2), 183-206</span></p>
-                </div>
-
                 <div class="publication-item scopus">
                     <span class="pub-badge scopus">SCOPUS</span>
                     <h3>Korean children's ability to recall the timing of autobiographical events</h3>
-                    <p class="publication-meta">Ahn, J. | <span class="publication-journal">Social Sciences & Humanities Open, 11, 101567</span></p>
-                </div>
-
-                <div class="publication-item ssci">
-                    <span class="pub-badge">SSCI</span>
-                    <h3>Reassessing Residency Restrictions: Analyzing Crime Proximity and Patterns for Sex Offenders in South Korea</h3>
-                    <p class="publication-meta">Ahn, J., Han, S. Y., & Choi, Y. | <span class="publication-journal">International Journal of Offender Therapy and Comparative Criminology</span></p>
-                </div>
-
-                <div class="publication-item">
-                    <h3>외상적 사건에 대한 미성년 피해자의 진술 신뢰성 연구</h3>
-                    <p class="publication-meta">안재경, 최선희, 박명호 | <span class="publication-journal">형사정책, 36(4), 187-213</span></p>
+                    <p class="publication-meta">Ahn, J. | <span class="publication-journal">Social Sciences & Humanities Open</span></p>
                 </div>
             </div>
 
-            <!-- 2024년 -->
             <div class="year-group" data-year="2024">
                 <h3 class="year-header">2024</h3>
-
-                <div class="publication-item">
-                    <h3>Preliminary Study on Children's Memory of Negative Event in South Korea Children</h3>
-                    <p class="publication-meta">안재경 | <span class="publication-journal">사회과학연구, 31(4), 203-222</span></p>
-                </div>
-
-                <div class="publication-item">
-                    <h3>성폭력범죄 재범위험성 판단을 위한 심리평가도구 활용에 대한 연구(2020~2023) -PCL-R, KSORSAS를 중심으로-</h3>
-                    <p class="publication-meta">안재경 | <span class="publication-journal">형사정책, 36(3), 131-158</span></p>
-                </div>
-
-                <div class="publication-item">
-                    <h3>정신질환형 범죄 대응을 위한 사법입원제도 도입 가능성</h3>
-                    <p class="publication-meta">안재경 | <span class="publication-journal">미래사회, 15(3), 91-109</span></p>
-                </div>
-
                 <div class="publication-item ssci">
                     <span class="pub-badge">SSCI</span>
                     <h3>Assessing Korean children's comprehension of legal terms and roles across age groups</h3>
-                    <p class="publication-meta">Jaekyung Ahn | <span class="publication-journal">Humanities and social sciences communications, 11, 347</span></p>
+                    <p class="publication-meta">Jaekyung Ahn | <span class="publication-journal">Humanities and social sciences communications</span></p>
                 </div>
-
                 <div class="publication-item">
-                    <h3>텍스트마이닝을 활용한 성범죄 사건언론보도 헤드라인에 대한 연구</h3>
-                    <p class="publication-meta">안재경 | <span class="publication-journal">인문사회과학연구, 32(1), 274-308</span></p>
-                </div>
-
-                <div class="publication-item">
-                    <h3>강압적 통제의 정의와 적용범위에 대한 연구</h3>
-                    <p class="publication-meta">안재경 | <span class="publication-journal">형사정책, 35(4), 167-210</span></p>
+                    <h3>성폭력범죄 재범위험성 판단을 위한 심리평가도구 활용에 대한 연구</h3>
+                    <p class="publication-meta">안재경 | <span class="publication-journal">형사정책, 36(3), 131-158</span></p>
                 </div>
             </div>
 
-            <!-- 2023년 -->
             <div class="year-group" data-year="2023">
                 <h3 class="year-header">2023</h3>
-
-                <div class="publication-item">
-                    <h3>아동학대 가해자 유형화(2010-2015)</h3>
-                    <p class="publication-meta">안재경, 손수걸 | <span class="publication-journal">경찰학회보, 25(4), 1-29</span></p>
-                </div>
-
-                <div class="publication-item">
-                    <h3>청소년의 스마트폰 의존도와 삶의 만족도 관계에 대한 연구: 사회적 비교에 대한 자아존중감의 조절된 매개효과를 중심으로</h3>
-                    <p class="publication-meta">안재경 | <span class="publication-journal">한국청소년연구, 34(3), 35-65</span></p>
-                </div>
-
-                <div class="publication-item">
-                    <h3>심리적 거리가 범죄관련 의사결정에 미치는 영향</h3>
-                    <p class="publication-meta">안재경, 최이문 | <span class="publication-journal">한국심리학회지: 법, 14(2), 67-90</span></p>
-                </div>
-
                 <div class="publication-item ssci">
                     <span class="pub-badge">SSCI</span>
                     <h3>Victim Selection in Korean Sexual Crimes: A Latent Class Analysis</h3>
-                    <p class="publication-meta">Jaekyung Ahn, Jeongsook Yoon, Yimoon Choi | <span class="publication-journal">Psychology, crime & Law</span></p>
+                    <p class="publication-meta">Ahn, J., Yoon, J., Choi, Y. | <span class="publication-journal">Psychology, crime & Law</span></p>
                 </div>
-
                 <div class="publication-item">
-                    <h3>청소년 게임중독의 의료화 현상에 대한 연구</h3>
-                    <p class="publication-meta">안재경 | <span class="publication-journal">미래사회, 14(2), 48-71</span></p>
-                </div>
-
-                <div class="publication-item">
-                    <h3>성인지감수성과 성적 불쾌감 표현이 성폭력범죄 판단에 미치는 영향</h3>
-                    <p class="publication-meta">안재경, 김세령, 최이문 | <span class="publication-journal">형사정책, 35(1), 7-42</span></p>
-                </div>
-
-                <div class="publication-item">
-                    <h3>범죄두려움 측정 개선방안에 대한 연구 정서와 인지적 평가로서의 범죄두려움</h3>
-                    <p class="publication-meta">안재경, 최이문 | <span class="publication-journal">형사정책연구, 34(1), 105-140</span></p>
-                </div>
-            </div>
-
-            <!-- 2022년 -->
-            <div class="year-group" data-year="2022">
-                <h3 class="year-header">2022</h3>
-
-                <div class="publication-item">
-                    <h3>Perceptions of the Korean Jury system : Current status and challenges</h3>
-                    <p class="publication-meta">Jaekyung Ahn, Yimoon Choi | <span class="publication-journal">INTERNATIONAL JOURNAL OF CRIMINAL JUSTICE, 4(2), 58-86</span></p>
-                </div>
-
-                <div class="publication-item">
-                    <h3>성폭력 무고 사건의 유형과 동기에 대한 연구</h3>
-                    <p class="publication-meta">안재경, 백수빈, 최이문 | <span class="publication-journal">형사정책, 34(3), 191-222</span></p>
-                </div>
-
-                <div class="publication-item">
-                    <h3>카메라등이용촬영죄 형종 결정에의 영향요인 : '성적 욕망 또는 수치심을 유발할 수 있는 사람의 신체'판단을 중심으로</h3>
-                    <p class="publication-meta">안재경, 김세령, 한민경 | <span class="publication-journal">한국범죄학, 16(2). 229-251</span></p>
-                </div>
-
-                <div class="publication-item">
-                    <h3>대법원 알코올 블랙아웃 판결의 시사점과 블랙아웃 판단시 고려해야 할 정보들에 대한 연구</h3>
-                    <p class="publication-meta">안재경, 지민혁, 최이문 | <span class="publication-journal">범죄수사학연구, 8(1), 5-30</span></p>
-                </div>
-
-                <div class="publication-item">
-                    <h3>시간의 경과가 아동진술에 미치는 영향: 미성년 성폭력 피해자 영상진술 조항 위헌결정에 대한 법심리학적 고찰</h3>
-                    <p class="publication-meta">안재경, 최이문 | <span class="publication-journal">형사정책연구, 33(2), 126-161</span></p>
+                    <h3>심리적 거리가 범죄관련 의사결정에 미치는 영향</h3>
+                    <p class="publication-meta">안재경, 최이문 | <span class="publication-journal">한국심리학회지: 법</span></p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 강의 섹션 -->
     <section id="teaching">
         <h2>Teaching Experience</h2>
         <div class="teaching-list fade-in">
@@ -807,40 +681,9 @@
                 <p class="university">동국대학교</p>
                 <p class="period">2024.03 - 2024.06</p>
             </div>
-            <div class="teaching-item">
-                <h3>응용통계분석</h3>
-                <p class="university">경찰대학</p>
-                <p class="period">2023.08 - 2024.08</p>
-            </div>
-            <div class="teaching-item">
-                <h3>법정심리학</h3>
-                <p class="university">한남대학교</p>
-                <p class="period">2023.09 - 2023.12</p>
-            </div>
-            <div class="teaching-item">
-                <h3>형사사법과 윤리</h3>
-                <p class="university">경기대학교</p>
-                <p class="period">2023.09 - 2023.12</p>
-            </div>
-            <div class="teaching-item">
-                <h3>고급법심리학</h3>
-                <p class="university">동국대학교</p>
-                <p class="period">2023.09 - 2024.06</p>
-            </div>
-            <div class="teaching-item">
-                <h3>범죄예방론, 경비업법</h3>
-                <p class="university">한국경비협회</p>
-                <p class="period">2023.06 - 현재</p>
-            </div>
-            <div class="teaching-item">
-                <h3>범죄심리학</h3>
-                <p class="university">한남대학교</p>
-                <p class="period">2023.03 - 2023.06</p>
-            </div>
         </div>
     </section>
 
-    <!-- 연락처 섹션 -->
     <section id="contact" style="background: var(--bg-light);">
         <h2>Contact</h2>
         <div class="contact-section fade-in">
@@ -851,7 +694,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Jaekyung Ahn. All rights reserved.</p>
         <p>한국형사법무정책연구원 부연구위원</p>
@@ -859,22 +701,9 @@
     </footer>
 
     <script>
-        // 모바일 메뉴
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // 네비게이션 링크 클릭 시 모바일 메뉴 닫기
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // 스크롤 시 네비게이션 스타일 변경
+        
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
@@ -883,8 +712,7 @@
                 navbar.classList.remove('scrolled');
             }
         });
-
-        // 부드러운 스크롤
+        
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -897,20 +725,14 @@
                 }
             });
         });
-
-        // 논문 필터링
+        
         const filterBtns = document.querySelectorAll('.filter-btn');
         const yearGroups = document.querySelectorAll('.year-group');
-
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // 활성 버튼 스타일
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-
                 const selectedYear = btn.getAttribute('data-year');
-
-                // 필터링
                 yearGroups.forEach(group => {
                     if (selectedYear === 'all' || group.getAttribute('data-year') === selectedYear) {
                         group.style.display = 'block';
@@ -920,13 +742,11 @@
                 });
             });
         });
-
-        // 스크롤 애니메이션
+        
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -934,7 +754,6 @@
                 }
             });
         }, observerOptions);
-
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
