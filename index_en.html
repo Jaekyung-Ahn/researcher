@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaekyung Ahn | Criminologist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #4285f4;
+            --primary-red: #ea4335;
+            --primary-yellow: #fbbc04;
+            --primary-green: #34a853;
+            --text-dark: #202124;
+            --text-gray: #5f6368;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --border-light: #dadce0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .lang-switch {
+            padding: 0.5rem 1rem;
+            background: var(--bg-light);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .lang-switch:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        .hero {
+            margin-top: 70px;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 4rem 2rem 2rem 2rem;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .hero-text .name-main {
+            color: var(--primary-blue);
+        }
+
+        .hero-text .name-kr {
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+
+        .hero-text .title {
+            font-size: 1.3rem;
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        .hero-text .affiliation {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--bg-light);
+            border-radius: 50px;
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-top: 1rem;
+        }
+
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--text-dark);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-green));
+            border-radius: 2px;
+        }
+
+        .education-list {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .education-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--primary-blue);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .education-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+        }
+
+        .education-item h3 {
+            color: var(--primary-blue);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item .degree {
+            color: var(--text-dark);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item .period {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .research-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .research-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .research-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .research-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .research-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .publications-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.5rem;
+            background: var(--white);
+            border: 2px solid var(--border-light);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+        }
+
+        .filter-btn.active {
+            background: var(--primary-blue);
+            color: var(--white);
+            border-color: var(--primary-blue);
+        }
+
+        .publications-list {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .year-group {
+            margin-bottom: 3rem;
+        }
+
+        .year-header {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-light);
+        }
+
+        .publication-item {
+            background: var(--white);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-green);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .publication-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .publication-item.ssci {
+            border-left-color: var(--primary-red);
+        }
+
+        .publication-item.scopus {
+            border-left-color: var(--primary-yellow);
+        }
+
+        .pub-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: var(--primary-red);
+            color: var(--white);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-badge.scopus {
+            background: var(--primary-yellow);
+            color: var(--text-dark);
+        }
+
+        .publication-item h3 {
+            color: var(--text-dark);
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .publication-meta {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .publication-journal {
+            color: var(--primary-blue);
+            font-weight: 500;
+        }
+
+        .teaching-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .teaching-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .teaching-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .teaching-item h3 {
+            color: var(--primary-blue);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .teaching-item .university {
+            color: var(--text-dark);
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .teaching-item .period {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .contact-section {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-section p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            background: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+        }
+
+        .contact-btn:hover {
+            background: #3367d6;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(66, 133, 244, 0.4);
+        }
+
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin: 0.3rem 0;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transition: left 0.3s;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text .name-kr {
+                font-size: 1.2rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .research-areas {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                font-size: 0.9rem;
+                padding: 0.8rem 1.5rem;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Jaekyung Ahn</div>
+            <div class="nav-right">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#teaching">Teaching</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="index.html" class="lang-switch">🇰🇷 한국어</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1><span class="name-main">Jaekyung Ahn</span></h1>
+                <p class="name-kr">안재경</p>
+                <p class="title">Criminologist | Legal Psychologist</p>
+                <p class="affiliation">Associate Research Fellow<br>Korean Institute of Criminal Justice Policy</p>
+                <div class="contact-info">
+                    📧 jaekyung.ann@gmail.com
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" style="background: var(--bg-light);">
+        <h2>Education</h2>
+        <div class="education-list fade-in">
+            <div class="education-item">
+                <h3>Korean National Police University</h3>
+                <p class="degree">Ph.D. in Criminology</p>
+                <p class="period">March 2020 - February 2023</p>
+            </div>
+            <div class="education-item">
+                <h3>Korean National Police University</h3>
+                <p class="degree">M.A. in Criminology</p>
+                <p class="period">March 2018 - February 2020</p>
+            </div>
+            <div class="education-item">
+                <h3>Korea National Open University</h3>
+                <p class="degree">B.A. in Law</p>
+                <p class="period">March 2019 - August 2022</p>
+            </div>
+            <div class="education-item">
+                <h3>University of British Columbia</h3>
+                <p class="degree">Bachelor of Arts, Major in Psychology, Minor in Education</p>
+                <p class="period">September 2012 - May 2017</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="research">
+        <h2>Research Areas</h2>
+        <div class="research-areas fade-in">
+            <div class="research-card">
+                <div class="research-icon">⚖️</div>
+                <h3>Legal Psychology</h3>
+                <p>Victim testimony, child witness credibility, forensic psychological assessment</p>
+            </div>
+            <div class="research-card">
+                <div class="research-icon">🔍</div>
+                <h3>Sexual Offenses</h3>
+                <p>Risk assessment of sex offenders, victim selection patterns, digital sex crimes</p>
+            </div>
+            <div class="research-card">
+                <div class="research-icon">👶</div>
+                <h3>Child Victimization</h3>
+                <p>Child memory development, child testimony analysis, typology of child abusers</p>
+            </div>
+            <div class="research-card">
+                <div class="research-icon">📊</div>
+                <h3>Criminological Methods</h3>
+                <p>Statistical analysis, data mining, spatial analysis, crime prediction</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications" style="background: var(--bg-light);">
+        <h2>Selected Publications</h2>
+        
+        <div class="publications-filter">
+            <button class="filter-btn active" data-year="all">All</button>
+            <button class="filter-btn" data-year="2026">2026</button>
+            <button class="filter-btn" data-year="2025">2025</button>
+            <button class="filter-btn" data-year="2024">2024</button>
+            <button class="filter-btn" data-year="2023">2023</button>
+        </div>
+
+        <div class="publications-list fade-in">
+            <div class="year-group" data-year="2026">
+                <h3 class="year-header">2026</h3>
+                <div class="publication-item ssci">
+                    <span class="pub-badge">SSCI</span>
+                    <h3>When Numbers Meet Justice: Examining the Consistency Between Quantitative Risk Assessment Tools (PCL-R, KSORAS) Scores and Court Disposition</h3>
+                    <p class="publication-meta">Ahn, J., & Sim, S. | <span class="publication-journal">International Journal of Law, Crime and Justice (In press)</span></p>
+                </div>
+            </div>
+
+            <div class="year-group" data-year="2025">
+                <h3 class="year-header">2025</h3>
+                <div class="publication-item ssci">
+                    <span class="pub-badge">SSCI</span>
+                    <h3>Distinct patterns in the accuracy of child testimonies: Evidence from a cluster‐based comparison with case records</h3>
+                    <p class="publication-meta">Ahn, J., & Choi, S. | <span class="publication-journal">Legal and Criminological Psychology</span></p>
+                </div>
+                <div class="publication-item scopus">
+                    <span class="pub-badge scopus">SCOPUS</span>
+                    <h3>Korean children's ability to recall the timing of autobiographical events</h3>
+                    <p class="publication-meta">Ahn, J. | <span class="publication-journal">Social Sciences & Humanities Open, 11, 101567</span></p>
+                </div>
+                <div class="publication-item ssci">
+                    <span class="pub-badge">SSCI</span>
+                    <h3>Reassessing Residency Restrictions: Analyzing Crime Proximity and Patterns for Sex Offenders in South Korea</h3>
+                    <p class="publication-meta">Ahn, J., Han, S. Y., & Choi, Y. | <span class="publication-journal">International Journal of Offender Therapy and Comparative Criminology</span></p>
+                </div>
+            </div>
+
+            <div class="year-group" data-year="2024">
+                <h3 class="year-header">2024</h3>
+                <div class="publication-item ssci">
+                    <span class="pub-badge">SSCI</span>
+                    <h3>Assessing Korean children's comprehension of legal terms and roles across age groups</h3>
+                    <p class="publication-meta">Jaekyung Ahn | <span class="publication-journal">Humanities and social sciences communications, 11, 347</span></p>
+                </div>
+                <div class="publication-item">
+                    <h3>A Study on the Use of Psychological Assessment Tools for Judging the Risk of Recidivism in Sexual Offenses (2020~2023)</h3>
+                    <p class="publication-meta">Ahn, J. | <span class="publication-journal">Korean Criminological Review, 36(3), 131-158</span></p>
+                </div>
+            </div>
+
+            <div class="year-group" data-year="2023">
+                <h3 class="year-header">2023</h3>
+                <div class="publication-item ssci">
+                    <span class="pub-badge">SSCI</span>
+                    <h3>Victim Selection in Korean Sexual Crimes: A Latent Class Analysis</h3>
+                    <p class="publication-meta">Jaekyung Ahn, Jeongsook Yoon, Yimoon Choi | <span class="publication-journal">Psychology, crime & Law</span></p>
+                </div>
+                <div class="publication-item">
+                    <h3>The Effect of Psychological Distance on Crime-Related Decision Making</h3>
+                    <p class="publication-meta">Ahn, J., & Choi, Y. | <span class="publication-journal">Korean Journal of Psychology and Law, 14(2), 67-90</span></p>
+                </div>
+                <div class="publication-item">
+                    <h3>Improving Fear of Crime Measurement: Fear of Crime as Emotion and Cognitive Appraisal</h3>
+                    <p class="publication-meta">Ahn, J., & Choi, Y. | <span class="publication-journal">Korean Journal of Criminology, 34(1), 105-140</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="teaching">
+        <h2>Teaching Experience</h2>
+        <div class="teaching-list fade-in">
+            <div class="teaching-item">
+                <h3>Crime Prevention Theory</h3>
+                <p class="university">Yongin University</p>
+                <p class="period">Sep 2025 - Dec 2025</p>
+            </div>
+            <div class="teaching-item">
+                <h3>Understanding Big Data</h3>
+                <p class="university">Korean National Police University</p>
+                <p class="period">Mar 2024 - Jun 2024</p>
+            </div>
+            <div class="teaching-item">
+                <h3>Judgment and Decision Making</h3>
+                <p class="university">Dongguk University</p>
+                <p class="period">Mar 2024 - Jun 2024</p>
+            </div>
+            <div class="teaching-item">
+                <h3>Advanced Social Psychology</h3>
+                <p class="university">Dongguk University</p>
+                <p class="period">Mar 2024 - Jun 2024</p>
+            </div>
+            <div class="teaching-item">
+                <h3>Applied Statistical Analysis</h3>
+                <p class="university">Korean National Police University</p>
+                <p class="period">Aug 2023 - Aug 2024</p>
+            </div>
+            <div class="teaching-item">
+                <h3>Forensic Psychology</h3>
+                <p class="university">Hannam University</p>
+                <p class="period">Sep 2023 - Dec 2023</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background: var(--bg-light);">
+        <h2>Contact</h2>
+        <div class="contact-section fade-in">
+            <p>Feel free to contact me for research collaboration or inquiries.</p>
+            <a href="mailto:jaekyung.ann@gmail.com" class="contact-btn">
+                📧 Email Me
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Jaekyung Ahn. All rights reserved.</p>
+        <p>Associate Research Fellow<br>Korean Institute of Criminal Justice Policy</p>
+        <p style="margin-top: 1rem; opacity: 0.7;">Hosted on GitHub Pages</p>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const yearGroups = document.querySelectorAll('.year-group');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const selectedYear = btn.getAttribute('data-year');
+                yearGroups.forEach(group => {
+                    if (selectedYear === 'all' || group.getAttribute('data-year') === selectedYear) {
+                        group.style.display = 'block';
+                    } else {
+                        group.style.display = 'none';
+                    }
+                });
+            });
+        });
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
