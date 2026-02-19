@@ -60,12 +60,31 @@
             font-weight: 700;
             color: var(--primary-blue);
         }
-
-        .nav-links {
+        
+        .nav-right {
             display: flex;
-            list-style: none;
+            align-items: center;
             gap: 2rem;
         }
+        
+        .lang-switch {
+            padding: 0.5rem 1rem;
+            background: var(--bg-light);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .lang-switch:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
 
         .nav-links a {
             text-decoration: none;
